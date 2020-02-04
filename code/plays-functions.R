@@ -105,9 +105,9 @@ fix_inconsistent_data_types <- function(p)
 }
 
 # fix team abbreviations
-## by default this just makes every team have the same abbreviation all season
-## use old_to_new=TRUE to make teams that have moved use the new abbreviation in the past
-fix_team_abbreviations <- function(p,old_to_new=FALSE)
+## makes every team have the same abbreviation all season
+## makes teams that have moved use the new abbreviation in the past
+fix_team_abbreviations <- function(p)
 {
   for (col in grep_col("team",p))
   {
@@ -117,8 +117,8 @@ fix_team_abbreviations <- function(p,old_to_new=FALSE)
       p[,col] <- case_when(
         x == "JAC" ~ "JAX",
         x == "LA" ~ "LAR",
-        x == "SD" & old_to_new ~ "LAC",
-        x == "STL" & old_to_new ~ "LAR",
+        x == "SD" ~ "LAC",
+        x == "STL" ~ "LAR",
         TRUE ~ x)
     }
   }
