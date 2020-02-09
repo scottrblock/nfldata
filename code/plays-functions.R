@@ -119,7 +119,6 @@ fix_team_abbreviations <- function(p,old_to_new=FALSE)
         x == "LA" ~ "LAR",
         x == "SD" & old_to_new ~ "LAC",
         x == "STL" & old_to_new ~ "LAR",
-        x == "OAK" & old_to_new ~ "LV",
         TRUE ~ x)
     }
   }
