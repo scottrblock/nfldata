@@ -139,7 +139,7 @@ apply_game_data <- function(p)
       mutate(game_id=as.character(game_id))
     p <- p %>% 
       fix_inconsistent_data_types() %>% 
-      inner_join(games,by=c("game_id","away_team","home_team"))
+      inner_join(games,by=c("game_id"))
   }
   return(p)
 }
